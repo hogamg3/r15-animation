@@ -1,4 +1,3 @@
--- Create the ScreenGui
 local ScreenGui = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
 local TopBar = Instance.new("Frame")
@@ -26,6 +25,22 @@ local mainframecorner = Instance.new("UICorner")
 local topcorner = Instance.new("UICorner")
 local AnimCorner = Instance.new("UICorner")
 local AnimTab = Instance.new("TextButton")
+local bottomcorner2 = Instance.new("UICorner")
+local BottomBar2 = Instance.new("Frame")
+local TopBar2 = Instance.new("Frame")
+local topcorner2 = Instance.new("UICorner")
+local MuseumTab = Instance.new("TextButton")
+local MuseumCorner = Instance.new("UICorner")
+local MuseumFrameWarn = Instance.new("TextLabel")
+local YesButton = Instance.new("TextButton")
+local NoButton = Instance.new("TextButton")
+local MuseumFrameCorner = Instance.new("UICorner")
+local NoCorner = Instance.new("UICorner")
+local YesCorner = Instance.new("UICorner")
+local bottomcorner3 = Instance.new("UICorner")
+local BottomBar3 = Instance.new("Frame")
+local TopBar3 = Instance.new("Frame")
+local topcorner3 = Instance.new("UICorner")
 
 -- For Animations
 local animations = {} -- To store animation tracks for toggling
@@ -99,6 +114,41 @@ BottomBar.Position = UDim2.new(0, 0, 1, -31)
 
 bottomcorner.Parent = BottomBar
 bottomcorner.CornerRadius = UDim.new(0, 10)
+
+BottomBar2.Parent = TabContainer
+BottomBar2.BackgroundColor3 = Color3.fromRGB(100, 30, 30)
+BottomBar2.Size = UDim2.new(1.5, 0, 0, 30)
+BottomBar2.Position = UDim2.new(0, 0, 1, -31)
+
+bottomcorner2.Parent = BottomBar2
+bottomcorner2.CornerRadius = UDim.new(0, 10)
+
+-- TopBar
+TopBar2.Parent = TabContainer
+TopBar2.BackgroundColor3 = Color3.fromRGB(100, 30, 30)
+TopBar2.Size = UDim2.new(1.5, 0, 0, 31)
+TopBar2.Position = UDim2.new(0, 0, 0, -30)
+
+topcorner2.Parent = TopBar2
+topcorner2.CornerRadius = UDim.new(0, 10)
+
+BottomBar3.Parent = MuseumFrameWarn
+BottomBar3.BackgroundColor3 = Color3.fromRGB(100, 30, 30)
+BottomBar3.Size = UDim2.new(1, 0, 0, 30)
+BottomBar3.Position = UDim2.new(0, 0, 1, -31)
+BottomBar3.BackgroundTransparency = 0.5
+
+bottomcorner3.Parent = BottomBar3
+bottomcorner3.CornerRadius = UDim.new(0, 10)
+
+-- TopBar
+TopBar3.Parent = MuseumFrameWarn
+TopBar3.BackgroundColor3 = Color3.fromRGB(100, 30, 30)
+TopBar3.Size = UDim2.new(1, 0, 0, 31)
+TopBar3.BackgroundTransparency = 0.5
+
+topcorner3.Parent = TopBar3
+topcorner3.CornerRadius = UDim.new(0, 10)
 
 -- Input box for animation speed
 local SpeedInput = Instance.new("TextBox")
@@ -253,16 +303,103 @@ AnimTab.BackgroundTransparency = 0.4
 AnimCorner.CornerRadius = UDim.new(0, 9)
 AnimCorner.Parent = AnimTab
 
+MuseumTab.Name = "AnimTab"
+MuseumTab.Parent = TabContainer
+MuseumTab.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+MuseumTab.Position = UDim2.new(0, 0, 0, 165)
+MuseumTab.Size = UDim2.new(1, 0, 0, 30)
+MuseumTab.Font = Enum.Font.Cartoon
+MuseumTab.Text = "Museum"
+MuseumTab.TextWrapped = true
+MuseumTab.TextColor3 = Color3.new(0, 0, 0)
+MuseumTab.TextSize = 23
+MuseumTab.BackgroundTransparency = 0.4
+
+MuseumTab.MouseButton1Click:Connect(function()
+MuseumFrameWarn.Visible = true
+end)
+
+MuseumCorner.CornerRadius = UDim.new(0, 9)
+MuseumCorner.Parent = MuseumTab
+
+MuseumFrameWarn.Name = "MuseumFrameWarn"
+MuseumFrameWarn.Parent = ScreenGui
+MuseumFrameWarn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MuseumFrameWarn.Position = UDim2.new(0.38, 10, 0.32, 40)
+MuseumFrameWarn.Size = UDim2.new(0.14, 100, 0.27, -30)
+MuseumFrameWarn.Text = "Are You Sure You Want To Join \nMuseum Of Roblox Animations?"
+MuseumFrameWarn.TextSize = 28
+MuseumFrameWarn.TextColor3 = Color3.new(255, 255, 255)
+MuseumFrameWarn.Font = Enum.Font.Cartoon
+MuseumFrameWarn.Visible = false
+MuseumFrameWarn.BackgroundTransparency = 0
+
+MuseumFrameCorner.CornerRadius = UDim.new(0, 10)
+MuseumFrameCorner.Parent = MuseumFrameWarn
+
+NoButton.TextScaled = true
+NoButton.TextWrapped = true
+NoButton.Font = Enum.Font.Cartoon
+NoButton.BackgroundTransparency = 0.3
+NoButton.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+NoButton.Text = "No"
+NoButton.Size = UDim2.new(0.3, 0, 0, 40)
+NoButton.Position = UDim2.new(0.6, 0, 0.7, 0)
+NoButton.Parent = MuseumFrameWarn
+
+NoCorner.CornerRadius = UDim.new(0, 10)
+NoCorner.Parent = NoButton
+
+NoButton.MouseButton1Click:Connect(function()
+MuseumFrameWarn.Visible = false
+end)
+
+-- Define YesButton properties
+YesButton.TextScaled = true
+YesButton.TextWrapped = true
+YesButton.Font = Enum.Font.Cartoon
+YesButton.BackgroundTransparency = 0.3
+YesButton.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+YesButton.Text = "Join"
+YesButton.Size = UDim2.new(0.3, 0, 0, 40)
+YesButton.Position = UDim2.new(0.1, 0, 0.7, 0)
+YesButton.Parent = MuseumFrameWarn
+
+-- Add UICorner to YesButton
+local YesCorner = Instance.new("UICorner")
+YesCorner.CornerRadius = UDim.new(0, 10)
+YesCorner.Parent = YesButton
+
+-- Script to join a specific Roblox game by ID when YesButton is clicked
+local gameId = 17238090666 -- The target game ID
+
+YesButton.MouseButton1Click:Connect(function()
+YesButton.Text = "Joining."
+wait(0.3)
+YesButton.Text = "Joining.."
+wait(0.3)
+YesButton.Text = "Joining..."
+wait(0.3)
+    if syn and syn.queue_on_teleport then
+        syn.queue_on_teleport("print('Teleporting to game ID " .. gameId .. "')")
+    end
+
+    local teleportService = game:GetService("TeleportService")
+    teleportService:Teleport(gameId)
+end)
+
+
 OtherFrame.Name = "OtherFrame"
 OtherFrame.Parent = MainFrame
 OtherFrame.BackgroundColor3 = Color3.fromRGB(255, 165, 0)
 OtherFrame.Position = UDim2.new(0, 10, 0, 40)
 OtherFrame.Size = UDim2.new(1, -20, 1, -70)
 OtherFrame.BackgroundTransparency = 1
-OtherFrame.Text = "Coming Soon/Not Finished"
+OtherFrame.Text = "Not Finished For R15!"
 OtherFrame.Font = Enum.Font.Cartoon
 OtherFrame.TextColor3 = Color3.fromRGB(255, 255, 255)
 OtherFrame.TextScaled = true
+
 
 ContentFrame.Name = "ContentFrame"
 ContentFrame.Parent = MainFrame
@@ -374,7 +511,7 @@ ScrollingFrame.Parent = MainFrame
 ScrollingFrame.Size = UDim2.new(1, -20, 1, -70)
 ScrollingFrame.Position = UDim2.new(0, 10, 0, 40)
 ScrollingFrame.BackgroundTransparency = 1
-ScrollingFrame.CanvasSize = UDim2.new(0, 0, 8, 0)
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 4, 0)
 ScrollingFrame.ScrollBarThickness = 10
 ScrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
 
@@ -501,8 +638,9 @@ local function createExecuteScriptButton(name, scriptFunction)
     end)
 end
 
+
 -- Example usage of `createExecuteScriptButton`
-createExecuteScriptButton("R15 Anims By Giobolqvi", function()
+createExecuteScriptButton("R15 Anims By Gio", function()
     loadstring(game:HttpGet("https://pastefy.app/FN77ZhT4/raw"))()
 end)
 
@@ -511,11 +649,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/MotionHubBeta/BetaMot
 end)
 
 -- Example usage of `createExecuteScriptButton`
-createExecuteScriptButton("Jerk Off By Giobolqvi", function()
+createExecuteScriptButton("Jerk Off By Gio", function()
 loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
 end)
 
-createExecuteScriptButton("Dash Anim By Giobolqvi", function()
+createExecuteScriptButton("Dash Anim By Gio", function()
 loadstring(game:HttpGet("https://pastefy.app/ZhKVgCK3/raw"))()
 end)
 
