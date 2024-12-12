@@ -510,6 +510,18 @@ createExecuteScriptButton("Motion Hub", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/MotionHubBeta/BetaMotion/refs/heads/main/MotionHubBeta"))()
 end)
 
+-- Example usage of `createExecuteScriptButton`
+createExecuteScriptButton("Jerk Off By Giobolqvi", function()
+if character:WaitForChild("Humanoid").RigType == Enum.HumanoidRigType.R15 then
+loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
+else
+loadstring(game:HttpGet("https://pastefy.app/ZhKVgCK3/raw"))()
+end)
+
+createExecuteScriptButton("Dash Anim By Giobolqvi", function()
+loadstring(game:HttpGet("https://pastefy.app/ZhKVgCK3/raw"))()
+end)
+
 -- Adding buttons (you can add more here)
 createAnimationButton("Rifle Reload", "3972131105")
 createAnimationButton("Rifle Aim Rotate", "3972157449")
